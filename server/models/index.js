@@ -1,5 +1,6 @@
-const Category = require('./Category');
-const Article = require('./Article');
-const User = require('./User');
 
-module.exports = { Category, Article, User };
+const Pin = require('./Pin');
+const User = require('./User');
+const Thought = require('./Comments');
+
+module.exports = { Pin, User, Thought };

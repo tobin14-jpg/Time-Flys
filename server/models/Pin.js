@@ -1,38 +1,29 @@
 const mongoose = require('mongoose');
 
 const PinSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        require: true,
-    },
-    title: {
-        type: String, 
-        require: true, 
-        min: 3
-    },
-    description: {
-        type: String, 
-        require: true,
-        min: 3,
-    },
-    rating: {
-        type: Number, 
-        require: true,
-        min: 0,
-        max: 5,
-    },
-    lat: {
-        type: Number, 
-        require: true,
-    },
-    long: {
-        type: Number,
-        require: true,
-    }
-},  
+    title: String,
+    
+    content: String, 
+
+    image: String, 
+
+    latitude: Number,
+
+    longitude: Number, 
+
+    author: { type: mongoose.Schema.ObjectId, ref: "User" },
+
+    comments: [
+        {
+            text: String,
+            createdAt: { type: Date, default: Date.now },
+            author: { type: mongoose.Schema.ObjectId, ref: "User" }
+        }
+    ]
+}, { timestamps: true }
 
 
   
 );
 
-module.exports = moongoose.model("Pin", PinSchema);
+module.exports = mongoose.model("Pin", PinSchema);

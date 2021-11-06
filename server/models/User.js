@@ -1,21 +1,24 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
+/*const bcrypt = require('bcrypt');*/
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new Schema({
     username: {
         type: String,
         min: 3,
         max: 20,
+        required: true,
         unique: true,
+        trim: true,
     },
     email: {
-        type: String, 
-        require: true, 
-        max: 50,
+        type: String,
+        required: true,
         unique: true,
+        match: [/.+@.+\..+/, 'Must match an email address!'],
     },
     password: {
         type: String, 
-        required,
+        required: true,
         min: 6,
     },
 }, 
@@ -23,4 +26,6 @@ const UserSchema = new mongoose.Schema({
     { timestamps: true }
 );
 
-module.exports = moongoose.model("User", UserSchema);
+const User = model('User', userSchema);
+
+module.exports = User;
