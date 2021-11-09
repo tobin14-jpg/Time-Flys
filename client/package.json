@@ -40,7 +40,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8800/api",
+  
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
